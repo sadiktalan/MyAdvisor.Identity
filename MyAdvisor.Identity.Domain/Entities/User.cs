@@ -17,8 +17,7 @@ public class User : IdentityUser<Guid>
     public string LastModifiedBy { get; set; }
     public string CreatedBy { get; set; }
     public DateTime PasswordModifiedDate { get; set; }
-    public RecordStatus RecordStatus { get; set; }
-    public Guid? LoginLastActivityId { get; set; }
+    // public Guid? LoginLastActivityId { get; set; }
     public override string ToString()
     {
         return $"{FirstName} {LastName}";

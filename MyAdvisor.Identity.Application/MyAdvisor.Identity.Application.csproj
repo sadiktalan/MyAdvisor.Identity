@@ -6,4 +6,17 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Commons\" />
+      <Folder Include="Features\Commands\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR.Contracts" Version="2.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MyAdvisor.Identity.Domain\MyAdvisor.Identity.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

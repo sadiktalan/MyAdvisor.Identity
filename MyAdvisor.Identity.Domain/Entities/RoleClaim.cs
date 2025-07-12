@@ -9,5 +9,4 @@ public class RoleClaim : IdentityRoleClaim<Guid>
     public DateTime UpdateDate { get; set; }
     public string LastModifiedBy { get; set; }
     public string CreatedBy { get; set; }
-    public RecordStatus RecordStatus { get; set; }
 }

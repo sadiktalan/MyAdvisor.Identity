@@ -1,4 +1,4 @@
-using MyAdvisor.Identity.Application.Commons;
+using MyAdvisor.Identity.Domain.CommonModels;
 
 namespace MyAdvisor.Identity.Domain.Entities;
 
