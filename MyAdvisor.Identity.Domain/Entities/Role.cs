@@ -10,4 +10,7 @@ public class Role : IdentityRole<Guid>
     public string LastModifiedBy { get; set; }
     public string CreatedBy { get; set; }
     public RecordStatus RecordStatus { get; set; }
+    
+    public List<User> Users { get; set; }
+
 }
