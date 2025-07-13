@@ -17,14 +17,15 @@ public static class DependencyInjection
 
     private static void ConfigureDatabase(IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("UserDbContext") ??
-                               throw new InvalidOperationException("Connection string 'UserDbContext' not found.");
+        var connectionString = configuration.GetConnectionString("DefaultConnection") ??
+                               throw new InvalidOperationException("Connection string 'UserIdentityDbContext' not found.");
         
         AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-        services.AddDbContext<UserDbContext>((sp, options) => options
+        services.AddDbContext<UserIdentityDbContext>((sp, options) => options
             .UseNpgsql(connectionString, b => b.EnableRetryOnFailure())
             .UseSnakeCaseNamingConvention()
-            .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+            .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+            .AddInterceptors(sp.GetRequiredService<IDbCommandInterceptor>()));
     }
 
     private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)

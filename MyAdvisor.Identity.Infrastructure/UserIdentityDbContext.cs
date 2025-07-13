@@ -10,7 +10,7 @@ using MyAdvisor.Identity.Domain.Enums;
 
 namespace MyAdvisor.Identity.Infrastructure;
 
-public class UserDbContext : IdentityDbContext<User, Role, Guid, UserClaim, IdentityUserRole<Guid>, IdentityUserLogin<Guid>, RoleClaim, IdentityUserToken<Guid>>
+public class UserIdentityDbContext : IdentityDbContext<User, Role, Guid, UserClaim, IdentityUserRole<Guid>, IdentityUserLogin<Guid>, RoleClaim, IdentityUserToken<Guid>>
 {
     public DbSet<UserSession> UserSession { get; set; }
     public DbSet<Screen> Screen { get; set; }
@@ -18,9 +18,9 @@ public class UserDbContext : IdentityDbContext<User, Role, Guid, UserClaim, Iden
     
     //private readonly IContextProvider _contextProvider;
     
-    public UserDbContext(
+    public UserIdentityDbContext(
         //IContextProvider contextProvider,
-        DbContextOptions options
+        DbContextOptions<UserIdentityDbContext> options
         ) : base(options)
     {
     }
